@@ -26,15 +26,15 @@ L1:
 #include <sscanf2>
 #include <colors>
 
-#define MYSQL_HOST     			"127.0.0.1"
-#define MYSQL_USER     			"root"
-#define MYSQL_DB 				"astawnew"
-#define MYSQL_PASS 				"root"
+#define MYSQL_HOST     			"_" // Ваш MySQL-хост
+#define MYSQL_USER     			"_" // Ваш MySQL-пользователь
+#define MYSQL_DB 				"_" // Ваша MySQL-база
+#define MYSQL_PASS 				"_" // Ваш MySQL-пароль
 #define MYSQL_LOG_TYPE          LOG_ALL // LOG_NONE && LOG_ERROR && LOG_WARNING && LOG_DEBUG && LOG_ALL
 
 #define TABLE_ACCOUNTS          "accounts"
 //
-#define SUPPORT_EMAIL           "test@sa-mp.com"
+#define SUPPORT_EMAIL           "test@sa-mp.com"  // Ваша Support-почта
 //
 #define INVALID_PLAYER_DATA 	-1
 #define MAX_EMAIL_LEN    		64
@@ -111,15 +111,18 @@ enum
 
 public OnGameModeInit()
 {
-    DisableInteriorEnterExits();
-    EnableStuntBonusForAll(0);
-    
     MySQL_C1 = mysql_connect(MYSQL_HOST, MYSQL_USER, MYSQL_DB, MYSQL_PASS);
+    
+    if(mysql_errno()) return MysqlErrorMessage(INVALID_PLAYER_ID);
+    
 	new stats[100];
 	mysql_stat(stats);
 	print(stats);
 	
 	mysql_log(MYSQL_LOG_TYPE);
+	
+ 	DisableInteriorEnterExits();
+    EnableStuntBonusForAll(0);
 	
 	CreatePickup(1239, 23, 1757.0731,-1943.8488,13.5688, -1); //Spawn FAQ Pickup
 	DynamicZone[zSpawnFAQ] = CreateDynamicSphere(1757.0731,-1943.8488,13.5688,0.8,0,0,-1); //Spawn FAQ Pickup
@@ -323,12 +326,20 @@ stock PlayerUpdateMoney(playerid)
 
 stock MysqlErrorMessage(playerid)
 {
-    PlayerClearChat(playerid,50);
-	new mysqlerror[MAX_CHATMESS_LEN];
-	format(mysqlerror,sizeof(mysqlerror),"В данный момент сервер испытывает проблемы с базой данных. (Код ошибки: # Error %d #)",mysql_errno());
-    SendClientMessage(playerid, -1, mysqlerror);
-    SendClientMessage(playerid, -1, "Попробуйте совершить действие пойже, по возможности сообщите о проблеме по адресу - "SUPPORT_EMAIL"");
-	PlayerKick(playerid);
+    print("-------------------------------------------------------------------------------");
+	printf("В данный момент сервер испытывает проблемы с базой данных. (Код ошибки: # Error %d #)",mysql_errno());
+	print("-------------------------------------------------------------------------------");
+	
+	if(playerid != INVALID_PLAYER_ID)
+	{
+	    PlayerClearChat(playerid,50);
+		new mysqlerror[MAX_CHATMESS_LEN];
+		format(mysqlerror,sizeof(mysqlerror),"В данный момент сервер испытывает проблемы с базой данных. (Код ошибки: # Error %d #)",mysql_errno());
+	    SendClientMessage(playerid, -1, mysqlerror);
+	    SendClientMessage(playerid, -1, "Попробуйте совершить действие позже, по возможности сообщите о проблеме по адресу - "SUPPORT_EMAIL"");
+		PlayerKick(playerid);
+	}
+	
 	return true;
 }
 public OnPlayerConnect(playerid)
@@ -344,6 +355,8 @@ public OnPlayerConnect(playerid)
 
 publics: OnPlayerJoin(playerid)
 {
+    HidePlayerDialog(playerid);
+    
 	GetPlayerName(playerid, PlayerInfo[playerid][pName], MAX_PLAYER_NAME);
     mysql_format(MySQL_C1, query, sizeof(query), "SELECT `name` FROM `"TABLE_ACCOUNTS"` WHERE `name` = '%e'", PlayerInfo[playerid][pName]);
 	mysql_function_query(MySQL_C1, query, true, "PlayerCheckRegister", "d", playerid);
