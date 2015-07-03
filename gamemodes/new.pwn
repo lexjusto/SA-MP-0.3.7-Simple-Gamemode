@@ -36,6 +36,9 @@ L1:
 //
 #define SUPPORT_EMAIL           "test@sa-mp.com"  // Ваша Support-почта
 //
+#undef MAX_PLAYERS
+#define MAX_PLAYERS 50 //Кол-во слотов которое прописано у вас в конфиге (server.cfg)
+//
 #define INVALID_PLAYER_DATA 	-1
 #define MAX_EMAIL_LEN    		64
 #define MAX_PASSWORD_LEN     	36
@@ -144,7 +147,8 @@ public OnPlayerEnterDynamicArea(playerid, areaid)
 
 public OnGameModeExit()
 {
-	return 1;
+	for(new i;i<MAX_PLAYERS;i++) if(PlayerInfo[i][pLogged]) PlayerSaveData(i);
+	return true;
 }
 
 public OnPlayerRequestClass(playerid, classid)
