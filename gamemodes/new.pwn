@@ -36,6 +36,8 @@ L1:
 //
 #define SUPPORT_EMAIL           "test@sa-mp.com"  // Ваша Support-почта
 //
+#define GAMEMODE_NAME          "Simple Gamemode"
+//
 #undef MAX_PLAYERS
 #define MAX_PLAYERS 50 //Кол-во слотов которое прописано у вас в конфиге (server.cfg)
 //
@@ -123,6 +125,8 @@ public OnGameModeInit()
 	print(stats);
 	
 	mysql_log(MYSQL_LOG_TYPE);
+	
+	SetGameModeText(GAMEMODE_NAME);
 	
  	DisableInteriorEnterExits();
     EnableStuntBonusForAll(0);
