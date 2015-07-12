@@ -5,7 +5,7 @@ Easy game mode for SA-MP (0.3.7) which has a system of registration retentive My
 * [mysql R39-3(by pBlueG)] (https://github.com/pBlueG/SA-MP-MySQL)
 * [streamer 2.7.7 (by Incognito)] (https://github.com/samp-incognito/samp-streamer-plugin)
 * [sscanf2] (http://forum.sa-mp.com/showthread.php?t=570927)
-* [dc_cmd 2.8 (by Daniel_Cortez)] (http://pro-pawn.ru/showthread.php?1028-DC_CMD-v2-8-%2823-03-14%29)
+* [zcmd 0.3.1 (by Y_Less)] (http://forum.sa-mp.com/showthread.php?t=91354)
 
 
 
@@ -15,5 +15,5 @@ Easy game mode for SA-MP (0.3.7) which has a system of registration retentive My
 * [mysql R39-3 (by pBlueG)] (https://github.com/pBlueG/SA-MP-MySQL)
 * [streamer 2.7.7 (by Incognito)] (https://github.com/samp-incognito/samp-streamer-plugin)
 * [sscanf2] (http://forum.sa-mp.com/showthread.php?t=570927)
-* [dc_cmd 2.8 (by Daniel_Cortez)] (http://pro-pawn.ru/showthread.php?1028-DC_CMD-v2-8-%2823-03-14%29)
+* [zcmd 0.3.1 (by Y_Less)] (http://forum.sa-mp.com/showthread.php?t=91354)
 
