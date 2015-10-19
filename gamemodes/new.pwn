@@ -1,11 +1,11 @@
-//Especially for those who are just beginning to study the pawn! • by lexjusto ;)
+//Especially for those who are just beginning to study the pawn! вЂў by lexjusto ;)
 //
 @___If_u_can_read_this_u_r_nerd();
 @___If_u_can_read_this_u_r_nerd()
 {
     #emit    stack    0x7FFFFFFF
     #emit    inc.s    cellmax
-    static const ___[][] = {"made with love by | lexjusto |"};
+    static const ___[][] = {"this piece of code (and only he) by Daniel_Cortez"};
     #emit    retn
     #emit    load.s.pri    ___
     #emit    proc
@@ -20,6 +20,7 @@ L1:
     #emit    jump    L1
     #emit    zero    cellmin
 }
+/*by |lexjusto|*/
 
 #include <a_samp>
 #include <streamer>
@@ -162,7 +163,7 @@ public OnGameModeInit()
 
 		CreatePickup(1239, 23, 1757.0731,-1943.8488,13.5688, -1); //Spawn FAQ Pickup
 		DynamicZone[zSpawnFAQ] = CreateDynamicSphere(1757.0731,-1943.8488,13.5688,0.8,0,0,-1); //Spawn FAQ Pickup
-		Create3DTextLabel("Начальная информация", 0xFF9900FF, 1757.0731,-1943.8488,14.2, 25.0, 0);
+		Create3DTextLabel("ГЌГ Г·Г Г«ГјГ­Г Гї ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГї", 0xFF9900FF, 1757.0731,-1943.8488,14.2, 25.0, 0);
 		Create3DTextLabel("_____________________", 0xFF9900FF, 1757.0731,-1943.8488,14.17, 25.0, 0);
 		
 		printf("-> Gamemode ("GAMEMODE_NAME") successfully launched! (%d ms)", GetTickCount() - launchtime);
@@ -177,7 +178,7 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 
 public OnPlayerEnterDynamicArea(playerid, areaid)
 {
-	if(areaid == DynamicZone[zSpawnFAQ]) return ShowPlayerDialog(playerid,dNull,DIALOG_STYLE_MSGBOX,"Начальная информация","Начальная информация об возможностях игры..\n...\n...\n...","Закрыть","");
+	if(areaid == DynamicZone[zSpawnFAQ]) return ShowPlayerDialog(playerid,dNull,DIALOG_STYLE_MSGBOX,"ГЌГ Г·Г Г«ГјГ­Г Гї ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГї","ГЌГ Г·Г Г«ГјГ­Г Гї ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГї Г®ГЎ ГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГїГµ ГЁГЈГ°Г»..\n...\n...\n...","Г‡Г ГЄГ°Г»ГІГј","");
 	return true;
 }
 
@@ -195,7 +196,7 @@ stock PlayerClearChat(playerid, size) for(new s; s < size; s++) SendClientFormat
 
 public OnPlayerCommandReceived(playerid, cmdtext[])
 {
-    if(!PlayerInfo[playerid][pLogged]) { SendClientFormattedMessage(playerid, -1,"* Необходимо авторизоватся!"); return false; }
+    if(!PlayerInfo[playerid][pLogged]) { SendClientFormattedMessage(playerid, -1,"* ГЌГҐГ®ГЎГµГ®Г¤ГЁГ¬Г® Г ГўГІГ®Г°ГЁГ§Г®ГўГ ГІГ±Гї!"); return false; }
 
 	return true;
 }
@@ -204,9 +205,9 @@ public OnPlayerCommandPerformed(playerid, cmdtext[], success)
 {
 	if(success == -1)
 	{
-		return SendClientFormattedMessage(playerid, -1, "Ошибка! Команда не найдена!");
+		return SendClientFormattedMessage(playerid, -1, "ГЋГёГЁГЎГЄГ ! ГЉГ®Г¬Г Г­Г¤Г  Г­ГҐ Г­Г Г©Г¤ГҐГ­Г !");
 	}
-	printf("Игрок %s только что использовал команду \"%s\"", PlayerName(playerid), cmdtext);
+	printf("Г€ГЈГ°Г®ГЄ %s ГІГ®Г«ГјГЄГ® Г·ГІГ® ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г« ГЄГ®Г¬Г Г­Г¤Гі \"%s\"", PlayerName(playerid), cmdtext);
 	return true;
 }
 
@@ -218,52 +219,52 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 	{
 		case dRegister:
 		{
-		    if(!response) return SendClientFormattedMessage(playerid, -1, "Вы отменили регистрацию."),PlayerKick(playerid);
+		    if(!response) return SendClientFormattedMessage(playerid, -1, "Г‚Г» Г®ГІГ¬ГҐГ­ГЁГ«ГЁ Г°ГҐГЈГЁГ±ГІГ°Г Г¶ГЁГѕ."),PlayerKick(playerid);
 		    if(!strlen(inputtext) || strlen(inputtext) < 3 || strlen(inputtext) > MAX_PASSWORD_LEN)
 			{
-			    SendClientFormattedMessage(playerid, -1, "Длина пароля должна быть от 3 до 36 символов! Попробуйте еще раз.");
-			    return ShowPlayerDialog(playerid, dRegister, DIALOG_STYLE_INPUT, "{FFFFFF}Регистрация","{FFFFFF}Аккаунт {8B0000}не зарегистрирован{FFFFFF}, введите ваш пароль:","Далее","Отмена");
+			    SendClientFormattedMessage(playerid, -1, "Г„Г«ГЁГ­Г  ГЇГ Г°Г®Г«Гї Г¤Г®Г«Г¦Г­Г  ГЎГ»ГІГј Г®ГІ 3 Г¤Г® 36 Г±ГЁГ¬ГўГ®Г«Г®Гў! ГЏГ®ГЇГ°Г®ГЎГіГ©ГІГҐ ГҐГ№ГҐ Г°Г Г§.");
+			    return ShowPlayerDialog(playerid, dRegister, DIALOG_STYLE_INPUT, "{FFFFFF}ГђГҐГЈГЁГ±ГІГ°Г Г¶ГЁГї","{FFFFFF}ГЂГЄГЄГ ГіГ­ГІ {8B0000}Г­ГҐ Г§Г Г°ГҐГЈГЁГ±ГІГ°ГЁГ°Г®ГўГ Г­{FFFFFF}, ГўГўГҐГ¤ГЁГІГҐ ГўГ Гё ГЇГ Г°Г®Г«Гј:","Г„Г Г«ГҐГҐ","ГЋГІГ¬ГҐГ­Г ");
 	        }
 	        strmid(TempInfo[playerid][pRegPassword], inputtext, 0, strlen(inputtext), MAX_PASSWORD_LEN);
-	        ShowPlayerDialog(playerid, dRegisterEmail, DIALOG_STYLE_INPUT, "{FFFFFF}Регистрация","Введите вашу электронную почту:","Далее","Отмена");
+	        ShowPlayerDialog(playerid, dRegisterEmail, DIALOG_STYLE_INPUT, "{FFFFFF}ГђГҐГЈГЁГ±ГІГ°Г Г¶ГЁГї","Г‚ГўГҐГ¤ГЁГІГҐ ГўГ ГёГі ГЅГ«ГҐГЄГІГ°Г®Г­Г­ГіГѕ ГЇГ®Г·ГІГі:","Г„Г Г«ГҐГҐ","ГЋГІГ¬ГҐГ­Г ");
 			return true;
 		}
 		case dRegisterEmail:
 		{
-  			if(!response) return SendClientFormattedMessage(playerid, -1, "Вы отменили регистрацию."),PlayerKick(playerid);
-  			if(strfind(inputtext, "lexjusto", true) != -1) return ShowPlayerDialog(playerid, dRegisterEmail, DIALOG_STYLE_INPUT, "{FFFFFF}Регистрация","{FFFFFF}Шутки шутишь?..Смешно..ха-ха..\n\nВведите вашу электронную почту:","Далее","Отмена");
+  			if(!response) return SendClientFormattedMessage(playerid, -1, "Г‚Г» Г®ГІГ¬ГҐГ­ГЁГ«ГЁ Г°ГҐГЈГЁГ±ГІГ°Г Г¶ГЁГѕ."),PlayerKick(playerid);
+  			if(strfind(inputtext, "lexjusto", true) != -1) return ShowPlayerDialog(playerid, dRegisterEmail, DIALOG_STYLE_INPUT, "{FFFFFF}ГђГҐГЈГЁГ±ГІГ°Г Г¶ГЁГї","{FFFFFF}ГГіГІГЄГЁ ГёГіГІГЁГёГј?..Г‘Г¬ГҐГёГ­Г®..ГµГ -ГµГ ..\n\nГ‚ГўГҐГ¤ГЁГІГҐ ГўГ ГёГі ГЅГ«ГҐГЄГІГ°Г®Г­Г­ГіГѕ ГЇГ®Г·ГІГі:","Г„Г Г«ГҐГҐ","ГЋГІГ¬ГҐГ­Г ");
 		    if(!strlen(inputtext) || strlen(inputtext) > MAX_EMAIL_LEN || strfind(inputtext, "@", true) == -1 || strfind(inputtext, ".", true) == -1)
 			{
-			    SendClientFormattedMessage(playerid, -1, "Вы ввели неккоректный электронный адрес, пример - 'lexjusto@yandex.com' (максимальная длина - 64 символа)");
-			    return ShowPlayerDialog(playerid, dRegisterEmail, DIALOG_STYLE_INPUT, "{FFFFFF}Регистрация","{FFFFFF}Введите вашу электронную почту:","Далее","Отмена");
+			    SendClientFormattedMessage(playerid, -1, "Г‚Г» ГўГўГҐГ«ГЁ Г­ГҐГЄГЄГ®Г°ГҐГЄГІГ­Г»Г© ГЅГ«ГҐГЄГІГ°Г®Г­Г­Г»Г© Г Г¤Г°ГҐГ±, ГЇГ°ГЁГ¬ГҐГ° - 'lexjusto@yandex.com' (Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г Гї Г¤Г«ГЁГ­Г  - 64 Г±ГЁГ¬ГўГ®Г«Г )");
+			    return ShowPlayerDialog(playerid, dRegisterEmail, DIALOG_STYLE_INPUT, "{FFFFFF}ГђГҐГЈГЁГ±ГІГ°Г Г¶ГЁГї","{FFFFFF}Г‚ГўГҐГ¤ГЁГІГҐ ГўГ ГёГі ГЅГ«ГҐГЄГІГ°Г®Г­Г­ГіГѕ ГЇГ®Г·ГІГі:","Г„Г Г«ГҐГҐ","ГЋГІГ¬ГҐГ­Г ");
 	        }
 	        strmid(TempInfo[playerid][pRegEmail], inputtext, 0, strlen(inputtext), MAX_EMAIL_LEN);
-	        ShowPlayerDialog(playerid, dRegisterGender, DIALOG_STYLE_LIST, "{FFFFFF}Регистрация","{FFFFFF}Пол вашего персонажа:\nМужской\nЖенский","Выбрать","Отмена");
+	        ShowPlayerDialog(playerid, dRegisterGender, DIALOG_STYLE_LIST, "{FFFFFF}ГђГҐГЈГЁГ±ГІГ°Г Г¶ГЁГї","{FFFFFF}ГЏГ®Г« ГўГ ГёГҐГЈГ® ГЇГҐГ°Г±Г®Г­Г Г¦Г :\nГЊГіГ¦Г±ГЄГ®Г©\nГ†ГҐГ­Г±ГЄГЁГ©","Г‚Г»ГЎГ°Г ГІГј","ГЋГІГ¬ГҐГ­Г ");
 			return true;
 		}
 		case dRegisterGender:
 		{
-		    if(!response) return SendClientFormattedMessage(playerid, -1, "Вы отменили регистрацию."),PlayerKick(playerid);
+		    if(!response) return SendClientFormattedMessage(playerid, -1, "Г‚Г» Г®ГІГ¬ГҐГ­ГЁГ«ГЁ Г°ГҐГЈГЁГ±ГІГ°Г Г¶ГЁГѕ."),PlayerKick(playerid);
 		    switch(listitem)
 		    {
-		        case 0: return ShowPlayerDialog(playerid, dRegisterGender, DIALOG_STYLE_LIST, "{FFFFFF}Регистрация","{FFFFFF}Пол вашего персонажа:\nМужской\nЖенский","Выбрать","Отмена");
+		        case 0: return ShowPlayerDialog(playerid, dRegisterGender, DIALOG_STYLE_LIST, "{FFFFFF}ГђГҐГЈГЁГ±ГІГ°Г Г¶ГЁГї","{FFFFFF}ГЏГ®Г« ГўГ ГёГҐГЈГ® ГЇГҐГ°Г±Г®Г­Г Г¦Г :\nГЊГіГ¦Г±ГЄГ®Г©\nГ†ГҐГ­Г±ГЄГЁГ©","Г‚Г»ГЎГ°Г ГІГј","ГЋГІГ¬ГҐГ­Г ");
 		        case 1: TempInfo[playerid][pRegGender] = 1;
 		        case 2: TempInfo[playerid][pRegEmail] = 2;
 		        default: TempInfo[playerid][pRegGender] = 1;
 		    }
-		    ShowPlayerDialog(playerid, dRegisterSkin, DIALOG_STYLE_LIST, "{FFFFFF}Регистрация","Skin №1\nSkin №2\nSkin №3\nSkin №4\nSkin №5","Выбрать","Отмена");
+		    ShowPlayerDialog(playerid, dRegisterSkin, DIALOG_STYLE_LIST, "{FFFFFF}ГђГҐГЈГЁГ±ГІГ°Г Г¶ГЁГї","Skin В№1\nSkin В№2\nSkin В№3\nSkin В№4\nSkin В№5","Г‚Г»ГЎГ°Г ГІГј","ГЋГІГ¬ГҐГ­Г ");
 		    return true;
 		}
 		case dRegisterSkin:
 		{
-		    if(!response) return SendClientFormattedMessage(playerid, -1, "Вы отменили регистрацию."),PlayerKick(playerid);
+		    if(!response) return SendClientFormattedMessage(playerid, -1, "Г‚Г» Г®ГІГ¬ГҐГ­ГЁГ«ГЁ Г°ГҐГЈГЁГ±ГІГ°Г Г¶ГЁГѕ."),PlayerKick(playerid);
 
 		    switch(listitem)
 		    {
 		        case 0..4: TempInfo[playerid][pRegSkin] = listitem+1;
 		        default: TempInfo[playerid][pRegSkin] = 1;
 		    }
-		    ShowPlayerDialog(playerid, dRegisterInvited, DIALOG_STYLE_INPUT, "{FFFFFF}Регистрация","{FFFFFF}Введите ник человека пригласившего вас на сервер (если такового нет - пропустите данный шаг):","Далее","Пропустить");
+		    ShowPlayerDialog(playerid, dRegisterInvited, DIALOG_STYLE_INPUT, "{FFFFFF}ГђГҐГЈГЁГ±ГІГ°Г Г¶ГЁГї","{FFFFFF}Г‚ГўГҐГ¤ГЁГІГҐ Г­ГЁГЄ Г·ГҐГ«Г®ГўГҐГЄГ  ГЇГ°ГЁГЈГ«Г Г±ГЁГўГёГҐГЈГ® ГўГ Г± Г­Г  Г±ГҐГ°ГўГҐГ° (ГҐГ±Г«ГЁ ГІГ ГЄГ®ГўГ®ГЈГ® Г­ГҐГІ - ГЇГ°Г®ГЇГіГ±ГІГЁГІГҐ Г¤Г Г­Г­Г»Г© ГёГ ГЈ):","Г„Г Г«ГҐГҐ","ГЏГ°Г®ГЇГіГ±ГІГЁГІГј");
 
 			return true;
 	  	}
@@ -271,23 +272,23 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		{
 		    if(response)
 		    {
-			    if(strfind(inputtext, "lexjusto", true) != -1) return ShowPlayerDialog(playerid, dRegisterInvited, DIALOG_STYLE_INPUT, "{FFFFFF}Регистрация","{FFFFFF}Шутки шутишь?..Смешно..ха-ха..завязывай..\n\nВведите ник человека пригласившего вас на сервер (если такового нет - пропустите данный шаг):","Далее","Пропустить");
+			    if(strfind(inputtext, "lexjusto", true) != -1) return ShowPlayerDialog(playerid, dRegisterInvited, DIALOG_STYLE_INPUT, "{FFFFFF}ГђГҐГЈГЁГ±ГІГ°Г Г¶ГЁГї","{FFFFFF}ГГіГІГЄГЁ ГёГіГІГЁГёГј?..Г‘Г¬ГҐГёГ­Г®..ГµГ -ГµГ ..Г§Г ГўГїГ§Г»ГўГ Г©..\n\nГ‚ГўГҐГ¤ГЁГІГҐ Г­ГЁГЄ Г·ГҐГ«Г®ГўГҐГЄГ  ГЇГ°ГЁГЈГ«Г Г±ГЁГўГёГҐГЈГ® ГўГ Г± Г­Г  Г±ГҐГ°ГўГҐГ° (ГҐГ±Г«ГЁ ГІГ ГЄГ®ГўГ®ГЈГ® Г­ГҐГІ - ГЇГ°Г®ГЇГіГ±ГІГЁГІГҐ Г¤Г Г­Г­Г»Г© ГёГ ГЈ):","Г„Г Г«ГҐГҐ","ГЏГ°Г®ГЇГіГ±ГІГЁГІГј");
 			    if(!strlen(inputtext) || strlen(inputtext) > MAX_PLAYER_NAME)
 			    {
-			    	SendClientFormattedMessage(playerid, -1, "Вы ввели неккоректный ник пригласившего вас игрока, пример - 'lexjusto'");
-				    return ShowPlayerDialog(playerid, dRegisterInvited, DIALOG_STYLE_INPUT, "{FFFFFF}Регистрация","{FFFFFF}Введите ник человека пригласившего вас на сервер (если такового нет - пропустите данный шаг):","Далее","Пропустить");
+			    	SendClientFormattedMessage(playerid, -1, "Г‚Г» ГўГўГҐГ«ГЁ Г­ГҐГЄГЄГ®Г°ГҐГЄГІГ­Г»Г© Г­ГЁГЄ ГЇГ°ГЁГЈГ«Г Г±ГЁГўГёГҐГЈГ® ГўГ Г± ГЁГЈГ°Г®ГЄГ , ГЇГ°ГЁГ¬ГҐГ° - 'lexjusto'");
+				    return ShowPlayerDialog(playerid, dRegisterInvited, DIALOG_STYLE_INPUT, "{FFFFFF}ГђГҐГЈГЁГ±ГІГ°Г Г¶ГЁГї","{FFFFFF}Г‚ГўГҐГ¤ГЁГІГҐ Г­ГЁГЄ Г·ГҐГ«Г®ГўГҐГЄГ  ГЇГ°ГЁГЈГ«Г Г±ГЁГўГёГҐГЈГ® ГўГ Г± Г­Г  Г±ГҐГ°ГўГҐГ° (ГҐГ±Г«ГЁ ГІГ ГЄГ®ГўГ®ГЈГ® Г­ГҐГІ - ГЇГ°Г®ГЇГіГ±ГІГЁГІГҐ Г¤Г Г­Г­Г»Г© ГёГ ГЈ):","Г„Г Г«ГҐГҐ","ГЏГ°Г®ГЇГіГ±ГІГЁГІГј");
 			    }
 			    strmid(TempInfo[playerid][pRegInvited], inputtext, 0, strlen(inputtext), MAX_PLAYER_NAME);
 		    }
 		    if(!response) TempInfo[playerid][pRegInvited] = 0;
 			new regstr[512];
 			new reginv[MAX_PLAYER_NAME];
-			if(TempInfo[playerid][pRegInvited] == 0) reginv = "* Шаг пропущен *";
+			if(TempInfo[playerid][pRegInvited] == 0) reginv = "* ГГ ГЈ ГЇГ°Г®ГЇГіГ№ГҐГ­ *";
 			else strmid(reginv, TempInfo[playerid][pRegInvited], 0, strlen(TempInfo[playerid][pRegInvited]), MAX_PLAYER_NAME);
 			format(regstr,sizeof(regstr),"\
-			{FFFFFF}Проверьте правильность введенных вами данных и сделайте скриншот, если нужно.\n\n\
-			Имя:\t\t%s\nПароль:\t%s\nE-Mail:\t\t%s\nПол:\t\t%s\nСкин:\t\t№%d\nРеферал:\t%s",PlayerName(playerid),TempInfo[playerid][pRegPassword],TempInfo[playerid][pRegEmail],(TempInfo[playerid][pRegGender] == 1) ? ("Мужчина") : ("Женщина"), TempInfo[playerid][pRegSkin], reginv);
-		    ShowPlayerDialog(playerid, dRegisterEnd, DIALOG_STYLE_MSGBOX, "{FFFFFF}Регистрация",regstr,"Верно","Повтор");
+			{FFFFFF}ГЏГ°Г®ГўГҐГ°ГјГІГҐ ГЇГ°Г ГўГЁГ«ГјГ­Г®Г±ГІГј ГўГўГҐГ¤ГҐГ­Г­Г»Гµ ГўГ Г¬ГЁ Г¤Г Г­Г­Г»Гµ ГЁ Г±Г¤ГҐГ«Г Г©ГІГҐ Г±ГЄГ°ГЁГ­ГёГ®ГІ, ГҐГ±Г«ГЁ Г­ГіГ¦Г­Г®.\n\n\
+			Г€Г¬Гї:\t\t%s\nГЏГ Г°Г®Г«Гј:\t%s\nE-Mail:\t\t%s\nГЏГ®Г«:\t\t%s\nГ‘ГЄГЁГ­:\t\tВ№%d\nГђГҐГґГҐГ°Г Г«:\t%s",PlayerName(playerid),TempInfo[playerid][pRegPassword],TempInfo[playerid][pRegEmail],(TempInfo[playerid][pRegGender] == 1) ? ("ГЊГіГ¦Г·ГЁГ­Г ") : ("Г†ГҐГ­Г№ГЁГ­Г "), TempInfo[playerid][pRegSkin], reginv);
+		    ShowPlayerDialog(playerid, dRegisterEnd, DIALOG_STYLE_MSGBOX, "{FFFFFF}ГђГҐГЈГЁГ±ГІГ°Г Г¶ГЁГї",regstr,"Г‚ГҐГ°Г­Г®","ГЏГ®ГўГІГ®Г°");
 		    return true;
 		}
 		case dRegisterEnd:
@@ -296,8 +297,8 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			if(!response)
 			{
 				PlayerClearChat(playerid,50);
-				SendClientFormattedMessage(playerid, -1, "Вы решили пройти регистрацию с самого начала.");
-				return ShowPlayerDialog(playerid, dRegister, DIALOG_STYLE_INPUT, "{FFFFFF}Регистрация","{FFFFFF}Аккаунт {8B0000}не зарегистрирован{FFFFFF}, введите ваш пароль:","Далее","Отмена");
+				SendClientFormattedMessage(playerid, -1, "Г‚Г» Г°ГҐГёГЁГ«ГЁ ГЇГ°Г®Г©ГІГЁ Г°ГҐГЈГЁГ±ГІГ°Г Г¶ГЁГѕ Г± Г±Г Г¬Г®ГЈГ® Г­Г Г·Г Г«Г .");
+				return ShowPlayerDialog(playerid, dRegister, DIALOG_STYLE_INPUT, "{FFFFFF}ГђГҐГЈГЁГ±ГІГ°Г Г¶ГЁГї","{FFFFFF}ГЂГЄГЄГ ГіГ­ГІ {8B0000}Г­ГҐ Г§Г Г°ГҐГЈГЁГ±ГІГ°ГЁГ°Г®ГўГ Г­{FFFFFF}, ГўГўГҐГ¤ГЁГІГҐ ГўГ Гё ГЇГ Г°Г®Г«Гј:","Г„Г Г«ГҐГҐ","ГЋГІГ¬ГҐГ­Г ");
 			}
 
 			TempInfo[playerid][pRegPassword] = INVALID_PLAYER_DATA;
@@ -310,11 +311,11 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
   		}
 		case dLogin:
 		{
-		    if(!response) return SendClientFormattedMessage(playerid, -1, "Вы отменили авторизацию."),PlayerKick(playerid);
+		    if(!response) return SendClientFormattedMessage(playerid, -1, "Г‚Г» Г®ГІГ¬ГҐГ­ГЁГ«ГЁ Г ГўГІГ®Г°ГЁГ§Г Г¶ГЁГѕ."),PlayerKick(playerid);
 		    if(!strlen(inputtext) || strlen(inputtext) < 3 || strlen(inputtext) > MAX_PASSWORD_LEN)
 			{
-			    SendClientFormattedMessage(playerid, -1, "Длина пароля должна быть от 3 до 36 символов! Попробуйте еще раз.");
-			    return ShowPlayerDialog(playerid, dLogin, DIALOG_STYLE_INPUT, "{FFFFFF}Авторизация","{FFFFFF}Аккаунт {006400}зарегистрирован{FFFFFF}, введите ваш пароль:","Далее","Отмена");
+			    SendClientFormattedMessage(playerid, -1, "Г„Г«ГЁГ­Г  ГЇГ Г°Г®Г«Гї Г¤Г®Г«Г¦Г­Г  ГЎГ»ГІГј Г®ГІ 3 Г¤Г® 36 Г±ГЁГ¬ГўГ®Г«Г®Гў! ГЏГ®ГЇГ°Г®ГЎГіГ©ГІГҐ ГҐГ№ГҐ Г°Г Г§.");
+			    return ShowPlayerDialog(playerid, dLogin, DIALOG_STYLE_INPUT, "{FFFFFF}ГЂГўГІГ®Г°ГЁГ§Г Г¶ГЁГї","{FFFFFF}ГЂГЄГЄГ ГіГ­ГІ {006400}Г§Г Г°ГҐГЈГЁГ±ГІГ°ГЁГ°Г®ГўГ Г­{FFFFFF}, ГўГўГҐГ¤ГЁГІГҐ ГўГ Гё ГЇГ Г°Г®Г«Гј:","Г„Г Г«ГҐГҐ","ГЋГІГ¬ГҐГ­Г ");
 		    }
 			mysql_format(MySQL_C1, query,sizeof(query), "SELECT * FROM `"TABLE_ACCOUNTS"` WHERE `name` = '%e' AND `password` = MD5(MD5(CONCAT(`regdate` + '%e'))) LIMIT 0,1", PlayerName(playerid), inputtext);
 	  		mysql_function_query(MySQL_C1, query, true, "PlayerLogin","d", playerid);
@@ -328,7 +329,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 }
 public OnPlayerSpawn(playerid)
 {
-	if(!PlayerInfo[playerid][pLogged]) return SendClientFormattedMessage(playerid,-1,"Необходимо авторизоваться!"),PlayerKick(playerid);
+	if(!PlayerInfo[playerid][pLogged]) return SendClientFormattedMessage(playerid,-1,"ГЌГҐГ®ГЎГµГ®Г¤ГЁГ¬Г® Г ГўГІГ®Г°ГЁГ§Г®ГўГ ГІГјГ±Гї!"),PlayerKick(playerid);
 
 	PlayerSpawn(playerid);
 
@@ -340,7 +341,7 @@ public OnPlayerSpawn(playerid)
 
 stock PlayerSpawn(playerid)
 {
-    if(!PlayerInfo[playerid][pLogged]) return SendClientFormattedMessage(playerid,-1,"Необходимо авторизоваться!"),PlayerKick(playerid);
+    if(!PlayerInfo[playerid][pLogged]) return SendClientFormattedMessage(playerid,-1,"ГЌГҐГ®ГЎГµГ®Г¤ГЁГ¬Г® Г ГўГІГ®Г°ГЁГ§Г®ГўГ ГІГјГ±Гї!"),PlayerKick(playerid);
 
 
    	new randomspawn = random(sizeof(NewPlayerSpawns));
@@ -387,9 +388,9 @@ stock MysqlErrorMessage(playerid)
 	{
  		PlayerClearChat(playerid, 50);
 		new mysqlerror[MAX_CHATMESS_LEN];
-		format(mysqlerror,sizeof(mysqlerror),"В данный момент сервер испытывает проблемы с базой данных. (Код ошибки: #%d)",mysql_errno());
+		format(mysqlerror,sizeof(mysqlerror),"Г‚ Г¤Г Г­Г­Г»Г© Г¬Г®Г¬ГҐГ­ГІ Г±ГҐГ°ГўГҐГ° ГЁГ±ГЇГ»ГІГ»ГўГ ГҐГІ ГЇГ°Г®ГЎГ«ГҐГ¬Г» Г± ГЎГ Г§Г®Г© Г¤Г Г­Г­Г»Гµ. (ГЉГ®Г¤ Г®ГёГЁГЎГЄГЁ: #%d)",mysql_errno());
 	    SendClientFormattedMessage(playerid, -1, mysqlerror);
-	    SendClientFormattedMessage(playerid, -1, "Попробуйте совершить действие пойже, по возможности сообщите о проблеме по адресу - "SUPPORT_EMAIL"");
+	    SendClientFormattedMessage(playerid, -1, "ГЏГ®ГЇГ°Г®ГЎГіГ©ГІГҐ Г±Г®ГўГҐГ°ГёГЁГІГј Г¤ГҐГ©Г±ГІГўГЁГҐ ГЇГ®Г©Г¦ГҐ, ГЇГ® ГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГЁ Г±Г®Г®ГЎГ№ГЁГІГҐ Г® ГЇГ°Г®ГЎГ«ГҐГ¬ГҐ ГЇГ® Г Г¤Г°ГҐГ±Гі - "SUPPORT_EMAIL"");
 		PlayerKick(playerid);
 
 		printf("-> Error sending the query to the database! (Error Code: #%d) | (Player: %s[%d])",mysql_errno(),PlayerName(playerid),playerid);
@@ -411,7 +412,7 @@ publics: OnPlayerJoin(playerid)
 {
 	PlayerClearChat(playerid, 50);
 
-	SendClientFormattedMessage(playerid, -1, "Добро пожаловать на сервер - LexJusto RolePlay");
+	SendClientFormattedMessage(playerid, -1, "Г„Г®ГЎГ°Г® ГЇГ®Г¦Г Г«Г®ГўГ ГІГј Г­Г  Г±ГҐГ°ГўГҐГ° - LexJusto RolePlay");
 
     mysql_format(MySQL_C1, query, sizeof(query), "SELECT `name` FROM `"TABLE_ACCOUNTS"` WHERE `name` = '%e'", PlayerName(playerid));
 	mysql_function_query(MySQL_C1, query, true, "PlayerCheckRegister", "d", playerid);
@@ -424,7 +425,7 @@ publics: OnPlayerJoin(playerid)
 stock PlayerKick(i) return SetTimerEx("KickFix", 250, false, "d", i);
 publics: KickFix(i)
 {
-	SendClientFormattedMessage(i, -1, "Для выхода из игры используйте команду /q(uit)");
+	SendClientFormattedMessage(i, -1, "Г„Г«Гї ГўГ»ГµГ®Г¤Г  ГЁГ§ ГЁГЈГ°Г» ГЁГ±ГЇГ®Г«ГјГ§ГіГ©ГІГҐ ГЄГ®Г¬Г Г­Г¤Гі /q(uit)");
 	Kick(i);
 	return true;
 }
@@ -471,8 +472,8 @@ publics: PlayerCheckRegister(playerid)
 	new rows, fields;
 	cache_get_data(rows, fields);
 
-	if(rows) ShowPlayerDialog(playerid, dLogin, DIALOG_STYLE_PASSWORD, "{FFFFFF}Авторизация","{FFFFFF}Аккаунт {006400}зарегистрирован{FFFFFF}, введите ваш пароль:","Далее","Отмена");
-	else ShowPlayerDialog(playerid, dRegister, DIALOG_STYLE_INPUT, "{FFFFFF}Регистрация","{FFFFFF}Аккаунт {8B0000}не зарегистрирован{FFFFFF}, введите ваш пароль:","Далее","Отмена");
+	if(rows) ShowPlayerDialog(playerid, dLogin, DIALOG_STYLE_PASSWORD, "{FFFFFF}ГЂГўГІГ®Г°ГЁГ§Г Г¶ГЁГї","{FFFFFF}ГЂГЄГЄГ ГіГ­ГІ {006400}Г§Г Г°ГҐГЈГЁГ±ГІГ°ГЁГ°Г®ГўГ Г­{FFFFFF}, ГўГўГҐГ¤ГЁГІГҐ ГўГ Гё ГЇГ Г°Г®Г«Гј:","Г„Г Г«ГҐГҐ","ГЋГІГ¬ГҐГ­Г ");
+	else ShowPlayerDialog(playerid, dRegister, DIALOG_STYLE_INPUT, "{FFFFFF}ГђГҐГЈГЁГ±ГІГ°Г Г¶ГЁГї","{FFFFFF}ГЂГЄГЄГ ГіГ­ГІ {8B0000}Г­ГҐ Г§Г Г°ГҐГЈГЁГ±ГІГ°ГЁГ°Г®ГўГ Г­{FFFFFF}, ГўГўГҐГ¤ГЁГІГҐ ГўГ Гё ГЇГ Г°Г®Г«Гј:","Г„Г Г«ГҐГҐ","ГЋГІГ¬ГҐГ­Г ");
  	return true;
 }
 
@@ -500,8 +501,8 @@ publics: PlayerLogin(playerid)
 	cache_get_data(rows, fields);
 	if(!rows)
 	{
-	    SendClientFormattedMessage(playerid, -1, "Вы ввели не верный пароль! Попробуйте ещё раз.");
-		return ShowPlayerDialog(playerid, dLogin, DIALOG_STYLE_PASSWORD, "Авторизация","Аккаунт зарегистрирован, введите ваш пароль:","Далее","Отмена");
+	    SendClientFormattedMessage(playerid, -1, "Г‚Г» ГўГўГҐГ«ГЁ Г­ГҐ ГўГҐГ°Г­Г»Г© ГЇГ Г°Г®Г«Гј! ГЏГ®ГЇГ°Г®ГЎГіГ©ГІГҐ ГҐГ№Вё Г°Г Г§.");
+		return ShowPlayerDialog(playerid, dLogin, DIALOG_STYLE_PASSWORD, "ГЂГўГІГ®Г°ГЁГ§Г Г¶ГЁГї","ГЂГЄГЄГ ГіГ­ГІ Г§Г Г°ГҐГЈГЁГ±ГІГ°ГЁГ°Г®ГўГ Г­, ГўГўГҐГ¤ГЁГІГҐ ГўГ Гё ГЇГ Г°Г®Г«Гј:","Г„Г Г«ГҐГҐ","ГЋГІГ¬ГҐГ­Г ");
 	}
 	else PlayerLoadData(playerid);
     return true;
@@ -539,12 +540,12 @@ stock PlayerLoadData(playerid)
 		if(mysql_errno()) return MysqlErrorMessage(playerid);
 
   		SetPlayerHealth(playerid, 100);
-    	SendClientFormattedMessage(playerid, -1, "Регистрация игрового аккаунта успешно завершена!");
+    	SendClientFormattedMessage(playerid, -1, "ГђГҐГЈГЁГ±ГІГ°Г Г¶ГЁГї ГЁГЈГ°Г®ГўГ®ГЈГ® Г ГЄГЄГ ГіГ­ГІГ  ГіГ±ГЇГҐГёГ­Г® Г§Г ГўГҐГ°ГёГҐГ­Г !");
     }
     else
     {
         SetPlayerHealth(playerid, 100);
-        SendClientFormattedMessage(playerid, -1, "Вы успешно авторизовались!");
+        SendClientFormattedMessage(playerid, -1, "Г‚Г» ГіГ±ГЇГҐГёГ­Г® Г ГўГІГ®Г°ГЁГ§Г®ГўГ Г«ГЁГ±Гј!");
     }
 
     PlayerInfo[playerid][pLogged] = true;
@@ -564,11 +565,11 @@ stock PlayerLoadData(playerid)
 public OnPlayerText(playerid, text[])
 {
     new chattext[MAX_CHATMESS_LEN];
-    if(PlayerInfo[playerid][pLogged] == false) return SendClientFormattedMessage(playerid, -1, "Прежде чем писать что либо в чат, вам необходимо авторизоваться!");
+    if(PlayerInfo[playerid][pLogged] == false) return SendClientFormattedMessage(playerid, -1, "ГЏГ°ГҐГ¦Г¤ГҐ Г·ГҐГ¬ ГЇГЁГ±Г ГІГј Г·ГІГ® Г«ГЁГЎГ® Гў Г·Г ГІ, ГўГ Г¬ Г­ГҐГ®ГЎГµГ®Г¤ГЁГ¬Г® Г ГўГІГ®Г°ГЁГ§Г®ГўГ ГІГјГ±Гї!");
 
 	if(RolePlayChat)
 	{
-	 	if(strlen(text) < 1 || strlen(text) > MAX_CHATMESS_LEN) return SendClientFormattedMessage(playerid, -1,"Сообщение не соответствует разрешенному размеру!");
+	 	if(strlen(text) < 1 || strlen(text) > MAX_CHATMESS_LEN) return SendClientFormattedMessage(playerid, -1,"Г‘Г®Г®ГЎГ№ГҐГ­ГЁГҐ Г­ГҐ Г±Г®Г®ГІГўГҐГІГ±ГІГўГіГҐГІ Г°Г Г§Г°ГҐГёГҐГ­Г­Г®Г¬Гі Г°Г Г§Г¬ГҐГ°Гі!");
 
 		format(chattext,sizeof(chattext),"- %s(%i): %s",PlayerName(playerid),playerid,text);
 		ProxDetector(20.0, playerid, chattext,COLOR_FADE1,COLOR_FADE2,COLOR_FADE3,COLOR_FADE4,COLOR_FADE5);
@@ -691,7 +692,7 @@ SendClientFormattedMessage(playerid, color, fstring[], {Float, _}:...)
 //COMMAND`S
 COMMAND:mymenu(playerid, params[])
 {
-    SendClientFormattedMessage(playerid, -1,"Тестовая команда.");
+    SendClientFormattedMessage(playerid, -1,"Г’ГҐГ±ГІГ®ГўГ Гї ГЄГ®Г¬Г Г­Г¤Г .");
     return true;
 }
 
