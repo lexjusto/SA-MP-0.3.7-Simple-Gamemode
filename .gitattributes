@@ -3,6 +3,7 @@
 
 # Custom for Visual Studio
 *.cs     diff=csharp
+# linguists
 *.pwn linguist-language=Pawn
 *.inc linguist-language=Pawn
 *.sql linguist-language=sql
